@@ -11,6 +11,7 @@ import helmet from "helmet";
 
 import morgan from "morgan";
 
+import KpiRoutes from "./routes/kpi.js";
 // CONFIGURATIONs
 
 dotenv.config();
@@ -29,6 +30,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cors());
+
+// ROUTES
+
+app.use("/kpi", KpiRoutes);
 
 // MONGOOSE SETUP
 
