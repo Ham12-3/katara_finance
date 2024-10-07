@@ -15,7 +15,11 @@ import KpiRoutes from "./routes/kpi.js";
 
 import KPI from "./models/KPI.js";
 
-import { kpis } from "./data/data.js";
+import productRoutes from "./routes/product.js";
+
+import Product from "./models/Product.js";
+
+import { kpis, products } from "./data/data.js";
 // CONFIGURATIONs
 
 dotenv.config();
@@ -39,6 +43,8 @@ app.use(cors());
 
 app.use("/kpi", KpiRoutes);
 
+app.use("/product", productRoutes);
+
 // MONGOOSE SETUP
 
 const PORT = process.env.PORT || 8000;
@@ -53,5 +59,7 @@ mongoose
 
     // await mongoose.connection.db.dropDatabase();
     // KPI.insertMany(kpis);
+
+    // Product.insertMany(products);
   })
   .catch((error) => console.log(`${error} did not connect`));
