@@ -22,7 +22,7 @@ const Row3 = () => {
   console.log(transactionData, "trasnactionData");
 
   const pieChartData = useMemo(() => {
-    if (kpiData && kpiData[0] && kpiData[0].expensesByCategory) {
+    if (kpiData) {
       const totalExpenses = kpiData[0].totalExpenses;
       return Object.entries(kpiData[0].expensesByCategory).map(
         ([key, value]) => {
@@ -39,7 +39,6 @@ const Row3 = () => {
         }
       );
     }
-    return []; // Return an empty array as a fallback
   }, [kpiData]);
 
   const productColumns = [
@@ -113,6 +112,24 @@ const Row3 = () => {
             "& .MuiDataGrid-columnSeparator": {
               visibility: "hidden",
             },
+            "& .MuiDataGrid-scrollbar": {
+              "&::-webkit-scrollbar": {
+                width: "8px",
+                height: "8px",
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: palette.primary[600],
+                borderRadius: "10px",
+                border: `2px solid ${palette.grey[900]}`,
+              },
+              "&::-webkit-scrollbar-thumb:hover": {
+                backgroundColor: palette.primary[500],
+              },
+              "&::-webkit-scrollbar-track": {
+                backgroundColor: palette.grey[800],
+                borderRadius: "10px",
+              },
+            },
           }}
         >
           <DataGrid
@@ -124,6 +141,7 @@ const Row3 = () => {
           />
         </Box>
       </DashboardBox>
+
       <DashboardBox gridArea="h">
         <BoxHeader
           title="Recent Orders"
@@ -147,6 +165,24 @@ const Row3 = () => {
             "& .MuiDataGrid-columnSeparator": {
               visibility: "hidden",
             },
+            "& .MuiDataGrid-scrollbar": {
+              "&::-webkit-scrollbar": {
+                width: "8px",
+                height: "8px",
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: palette.primary[600],
+                borderRadius: "10px",
+                border: `2px solid ${palette.grey[900]}`,
+              },
+              "&::-webkit-scrollbar-thumb:hover": {
+                backgroundColor: palette.primary[500],
+              },
+              "&::-webkit-scrollbar-track": {
+                backgroundColor: palette.grey[800],
+                borderRadius: "10px",
+              },
+            },
           }}
         >
           <DataGrid
@@ -158,6 +194,7 @@ const Row3 = () => {
           />
         </Box>
       </DashboardBox>
+
       <DashboardBox gridArea="i">
         <BoxHeader title="Expense Breakdown By Category" sideText="+4%" />
         <FlexBetween mt="0.5rem" gap="0.5rem" p="0 1rem" textAlign="center">
